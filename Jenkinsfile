@@ -17,19 +17,13 @@ podTemplate(label: 'mypod', containers: [
             }
         }
 
-        stage('Clone repository') {
-            container('git') {
-                sh 'whoami'
-                sh 'hostname -i'
-                sh 'git clone -b master https://github.com/tanvi789/seven-springs-gatling-tests.git'
-            }
+        stage('checkout repository') {
+           checkout scm
         }
 
         stage('Maven Build') {
             container('maven') {
                 dir('seven-springs-gatling-tests/') {
-                    sh 'hostname'
-                    sh 'hostname -i'
                     sh 'mvn gatling:test -DProfile='single' --fail-at-end --batch-mode --update-snapshots'
                 }
             }
