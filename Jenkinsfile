@@ -1,20 +1,18 @@
-podTemplate(label: 'mypod', containers: [
+def mypod = "mypod-${UUID.randomUUID().toString()}"
+podTemplate(label: mypod, containers: [
     containerTemplate(name: 'maven', image: 'maven:3.3.9-jdk-8-alpine', command: 'cat', ttyEnabled: true),
-    containerTemplate(name: 'docker', image: 'docker', command: 'cat', ttyEnabled: true)
-  ],
-  volumes: [
-    hostPathVolume(mountPath: '/var/run/docker.sock', hostPath: '/var/run/docker.sock'),
-  ]
-  ) {
-    node('mypod') {
-        stage('checkout repository') {
-           checkout scm
+  ])
+  {
+  node(mypod) {
+  container('maven') {
+    stage('Build a project') {
+      sh 'env'
+          }
+    stage('checkout repository') {
+      checkout scm
         }
-
-        stage('Maven Build') {
-            container('maven') {
-                dir('seven-springs-gatling-tests/') {
-                    sh 'gatling:test -DProfile='single' --fail-at-end --batch-mode --update-snapshots'
+    stage('Maven Build') {
+      sh 'mvn gatling:test -DProfile='single' --fail-at-end --batch-mode --update-snapshots'
                 }
             }
         }
