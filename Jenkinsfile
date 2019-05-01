@@ -4,17 +4,19 @@ podTemplate(label: mypod, containers: [
   ])
   {
   node(mypod) {
+
   container('maven') {
     stage('Build a project') {
       sh 'env'
           }
+          }
+
     stage('checkout repository') {
       checkout scm
         }
+
     stage('Maven Build') {
       sh 'mvn gatling:test -DProfile='single' --fail-at-end --batch-mode --update-snapshots'
                 }
             }
         }
-    }
-}
