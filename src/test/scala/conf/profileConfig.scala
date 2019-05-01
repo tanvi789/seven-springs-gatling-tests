@@ -17,5 +17,5 @@ object profileConfig {
   val percentile99 = 300
   val requestsPerSecond = 1000
 
-  var base = "https://www.google.com"
+  var base = "https://www.itqaworld.com"
 }
