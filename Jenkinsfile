@@ -1,5 +1,4 @@
 podTemplate(label: 'mypod', containers: [
-    containerTemplate(name: 'git', image: 'alpine/git', ttyEnabled: true, command: 'cat'),
     containerTemplate(name: 'maven', image: 'maven:3.3.9-jdk-8-alpine', command: 'cat', ttyEnabled: true),
     containerTemplate(name: 'docker', image: 'docker', command: 'cat', ttyEnabled: true)
   ],
@@ -15,7 +14,7 @@ podTemplate(label: 'mypod', containers: [
         stage('Maven Build') {
             container('maven') {
                 dir('seven-springs-gatling-tests/') {
-                    sh 'mvn gatling:test -DProfile='single' --fail-at-end --batch-mode --update-snapshots'
+                    sh 'gatling:test -DProfile='single' --fail-at-end --batch-mode --update-snapshots'
                 }
             }
         }
