@@ -18,7 +18,8 @@ podTemplate(label: mypod, containers: [
         }
 
     stage('Maven Build') {
-      sh 'gatling:test -DProfile='single' --fail-at-end --batch-mode --update-snapshots'
+      sh 'mvn clean install'
+      sh 'mvn gatling:test -DProfile='single' --fail-at-end --batch-mode --update-snapshots'
                 }
             }
         }
