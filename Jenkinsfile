@@ -1,6 +1,6 @@
 def mypod = "mypod-${UUID.randomUUID().toString()}"
 podTemplate(label: mypod, containers: [
-    containerTemplate(name: 'maven', image: 'maven:3.3.9-jdk-8-alpine', command: 'cat', ttyEnabled: true)
+    containerTemplate(name: 'maven', image: 'maven:3.6.1-jdk-8-alpine', command: 'cat', ttyEnabled: true)
   ],
    volumes: [
     emptyDirVolume(mountPath: '/zap/wrk')
@@ -18,8 +18,7 @@ podTemplate(label: mypod, containers: [
         }
 
     stage('Maven Build') {
-      sh 'mvn clean install'
-      sh 'mvn gatling:test -DProfile='single' --fail-at-end --batch-mode --update-snapshots'
+      sh 'mvn gatling:test -DProfile='single''
                 }
             }
         }
