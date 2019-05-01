@@ -21,7 +21,7 @@ podTemplate(label: 'mypod', containers: [
             container('git') {
                 sh 'whoami'
                 sh 'hostname -i'
-                sh 'git clone -b master https://github.com/lvthillo/hello-world-war.git'
+                sh 'git clone -b master https://github.com/tanvi789/seven-springs-gatling-tests.git'
             }
         }
 
