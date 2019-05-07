@@ -17,7 +17,7 @@ podTemplate(label: mypod, containers: [
 
     stage('Maven Build') {
         container('maven') {
-         dir('hello-world-war/') {
+         dir('/') {
       sh 'mvn clean install'
       }
 
