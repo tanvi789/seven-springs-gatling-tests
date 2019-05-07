@@ -7,7 +7,6 @@ podTemplate(label: mypod, containers: [
   {
   node(mypod) {
 
-  container('maven') {
     stage('Build a project') {
       sh 'env'
           }
@@ -17,6 +16,8 @@ podTemplate(label: mypod, containers: [
         }
 
     stage('Maven Build') {
+        container('maven') {
+         dir('hello-world-war/') {
       sh 'mvn clean install'
       }
 
