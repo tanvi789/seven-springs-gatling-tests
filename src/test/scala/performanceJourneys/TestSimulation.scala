@@ -2,6 +2,7 @@ package performanceJourneys
 
 import io.gatling.core.Predef._
 import conf.HttpConfiguration
+import conf.profileConfig._
 import runner.PerformanceTestRunner
 
 class TestSimulation extends PerformanceTestRunner
