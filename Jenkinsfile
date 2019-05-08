@@ -17,7 +17,6 @@ podTemplate(label: mypod, containers: [
 
     stage('Maven Build') {
         container('maven') {
-         {
       sh 'mvn clean install'
       }
 
