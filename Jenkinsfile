@@ -17,7 +17,7 @@ podTemplate(label: mypod, containers: [
 
     stage('Maven Build') {
         container('maven') {
-         dir('seven-springs-gatling-tests/') {
+         {
       sh 'mvn clean install'
       }
 
