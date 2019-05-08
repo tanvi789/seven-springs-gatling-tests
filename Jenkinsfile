@@ -27,4 +27,3 @@ podTemplate(label: mypod, containers: [
         }
         }
         }
-        }
