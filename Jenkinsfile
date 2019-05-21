@@ -17,8 +17,12 @@ podTemplate(label: mypod, containers: [
 
     stage('Maven Build') {
         container('maven') {
-      sh 'mvn clean install'
+      sh 'mvn clean'
       }
+
+     stage('Run Tests') {
+      sh 'mvn install'
+        }
 
     stage('Run Tests') {
       sh './runTests.sh'
