@@ -1,6 +1,7 @@
 def mypod = "mypod-${UUID.randomUUID().toString()}"
 podTemplate(label: mypod, containers: [
-    containerTemplate(name: 'maven', image: 'maven:3.5.2-jdk-8', command: 'cat', ttyEnabled: true)
+    containerTemplate(name: 'maven', image: 'maven:3.5.2-jdk-8-alpine', command: 'cat', ttyEnabled: true),
+    containerTemplate(name: 'docker', image: 'docker', command: 'cat', ttyEnabled: true)
   ],
    volumes: [
     emptyDirVolume(mountPath: '/opt/gatling/results')])
@@ -17,7 +18,7 @@ podTemplate(label: mypod, containers: [
 
     stage('Maven Build') {
         container('maven') {
-      sh 'mvn clean install'
+      sh 'mvn clean compile'
       }
 
     stage('Run Tests') {

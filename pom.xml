@@ -6,14 +6,14 @@
 
     <groupId>seven-springs-gatling-tests</groupId>
     <artifactId>seven-springs-gatling-tests</artifactId>
-    <version>3.0.3</version>
+    <version>3.1.2</version>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <gatling.version>${project.version}</gatling.version>
-        <gatling-plugin.version>3.0.2</gatling-plugin.version>
+        <gatling-plugin.version>3.0.1</gatling-plugin.version>
     </properties>
 
     <dependencies>
