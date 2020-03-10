@@ -8,7 +8,7 @@ import runner.PerformanceTestRunner
 class TestSimulation extends PerformanceTestRunner
   with HttpConfiguration {
 
-  val GithubGet = scenario("New Coordination Service")
+  val GithubGet = scenario("Test Service")
     .exec(ServiceRequests.GithubGet).pause(5)
 
   runSimulation(GithubGet)
